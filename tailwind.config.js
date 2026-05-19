@@ -1,0 +1,61 @@
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: ['./App.tsx', './src/**/*.{ts,tsx}'],
+  presets: [require('nativewind/preset')],
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        primary: {
+          50: '#EEF2FF',
+          100: '#E0E7FF',
+          200: '#C7D2FE',
+          300: '#A5B4FC',
+          400: '#818CF8',
+          500: '#6366F1',
+          600: '#4F46E5',
+          700: '#4338CA',
+          800: '#3730A3',
+          900: '#312E81',
+          950: '#1E1B4B',
+        },
+        success: { light: '#DCFCE7', DEFAULT: '#4ADE80', dark: '#16A34A' },
+        warning: { light: '#FEF3C7', DEFAULT: '#FBBF24', dark: '#D97706' },
+        destructive: { light: '#FEE2E2', DEFAULT: '#F87171', dark: '#DC2626' },
+        info: { light: '#DBEAFE', DEFAULT: '#60A5FA', dark: '#2563EB' },
+
+        navy: '#1A3353',
+        amber: '#E8820C',
+        brand: {
+          navy: '#1A3353',
+          amber: '#E8820C',
+          blue: '#2563EB',
+          teal: '#0D9488',
+          navyDark: '#60A5FA',
+        },
+        status: {
+          new: '#F59E0B',
+          accepted: '#2563EB',
+          progress: '#7C3AED',
+          resume: '#EA580C',
+          completed: '#16A34A',
+          rejected: '#E11D48',
+          available: '#16A34A',
+          oos: '#E11D48',
+          locked: '#6B7280',
+          pending: '#F59E0B',
+          approved: '#2563EB',
+          paid: '#16A34A',
+          failed: '#E11D48',
+        },
+      },
+      fontFamily: {
+        sans: ['Inter'],
+        'sans-medium': ['Inter-Medium'],
+        'sans-semibold': ['Inter-SemiBold'],
+        'sans-bold': ['Inter-Bold'],
+      },
+    },
+  },
+  plugins: [],
+};
