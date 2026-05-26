@@ -100,7 +100,7 @@ export function PartsListBuilderScreen({ route }: JobsStackScreenProps<'PartsLis
           name: product.name,
           variant: dv.display_name,
           qty,
-          unitPrice: dv.price?.amount ?? 0,
+          unitPrice: dv.price?.price_with_gst ?? dv.price?.amount ?? 0,
           status: dv.in_stock ? 'available' : 'outOfStock',
         };
       }
@@ -222,7 +222,7 @@ export function PartsListBuilderScreen({ route }: JobsStackScreenProps<'PartsLis
           const inList = list[key];
           const qty = inList?.qty ?? 0;
           const inStock = dv?.in_stock ?? false;
-          const price = dv?.price?.amount ?? null;
+          const price = dv?.price?.price_with_gst ?? dv?.price?.amount ?? null;
           const imageUri = resolveMediaUrl(dv?.image ?? item.images?.[0] ?? null);
           return (
             <Pressable
@@ -267,7 +267,7 @@ export function PartsListBuilderScreen({ route }: JobsStackScreenProps<'PartsLis
                   />
                   {price != null ? (
                     <Text style={{ color: colors.textPrimary, fontSize: 13, fontWeight: '600' }}>
-                      ₹{price.toLocaleString('en-IN')}
+                      ₹{price.toLocaleString('en-IN')}{dv?.price?.gst_rate != null ? ` (incl. GST ${dv.price.gst_rate}%)` : ''}
                     </Text>
                   ) : null}
                 </View>
